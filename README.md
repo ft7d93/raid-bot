@@ -2,7 +2,7 @@
 
 Paremeters to change:
 
-Go to the file `\config.json` and change the parameters: 
+Go to the f`i`le `\config.json` and `c`hange the param`e`ters: 
 
 ```json
 {

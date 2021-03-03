@@ -13,8 +13,6 @@ client.on("ready", () => {
   
 });
 
-
-
 client.on("message", async message => {
   
     const args = message.content
@@ -101,7 +99,9 @@ if(message.content.toLowerCase().startsWith(config.prefix + "help")){
   .addField("pfp", "Change server icon")
   .addField("nuke", "All raid functions in the same command")
 
-  message.member.send(embed)
+    message.member.send(embed)
+    .catch(err => console.log("\nI can't sen't you the msg with dm. Open it!"))
+
 };
 
 if(message.content.toLowerCase().startsWith(config.prefix + "name")){
