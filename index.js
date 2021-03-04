@@ -40,7 +40,7 @@ if(message.content.toLowerCase().startsWith(config.prefix + "ping")){
 
   message.guild.channels.cache.forEach(chanel => {
 
-	chanel.send(ags.slice(1).join(" "))
+	chanel.send(args.slice(1).join(" "))
   });
   
   }, 250)
